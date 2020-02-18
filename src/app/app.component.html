@@ -168,7 +168,7 @@
     <po-info
         p-label="Date PIPE"
         p-orientation="horizontal"
-        [p-value]="birthday | date : 'dd/MM/yyyy'">
+        [p-value]="birthday | date : literals?.dateFormat">
     </po-info>
     <!-- Vai exibir a variável nameTeste em maisculo -->
     <po-info
@@ -199,15 +199,21 @@
       e na função transform é retornada a descrição
     -->
     <po-info p-label="Sexo"
-             [p-value]="'M' | sex">
+             [p-value]="'M' | sex : this.literals">
     </po-info>
 
     <po-info p-label="Sexo"
-             [p-value]="'F' | sex">
+             [p-value]="'F' | sex : this.literals">
     </po-info>
 
-    <po-info p-label="Sexo"
-             [p-value]="'XXX' | sex">
+    <po-info [p-label]="literals?.sex"
+             [p-value]="'XXX' | sex : this.literals">
+    </po-info>
+
+    <h1>Tradução</h1>
+    <po-info
+        [p-label]="literals?.add"
+        p-value="Teste">
     </po-info>
     <br/>
     <br/>

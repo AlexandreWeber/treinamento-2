@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import { PoMenuItem } from '@portinari/portinari-ui';
+import { PoI18nService } from '@portinari/portinari-ui';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,16 @@ export class AppComponent {
   nameTeste = 'Alexandre';
   showName2 = false;
   orderValue = 12540;
+  literals = {};
+
+  constructor(private poI18nService: PoI18nService) {
+    poI18nService.getLiterals()
+                 .subscribe((literals) => {
+      this.literals = literals;
+      const teste = this.literals['add'];
+      console.log(teste);
+    });
+  }
 
   // usada no exemplo de pipe
   birthday = new Date(1988, 3, 15); // April 15, 1988
@@ -38,13 +48,6 @@ export class AppComponent {
       orders: [{ code: 100, value: 1000 }, { code: 200, value: 2000 }]
     }
   ];
-
-  literals = {
-    buttonLabel: 'Clique Aqui!!!', // Essa variavel é usada o HTML para mostrar a label do botão
-    inputLabel: 'Two-Way'
-  }
-
-
 
   private onClick() {
     alert('Clicked in menu item')

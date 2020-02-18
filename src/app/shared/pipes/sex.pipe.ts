@@ -5,16 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SexPipe implements PipeTransform {
   // PIPE usado para formatar os valores no app.component.html
   // Não esquecer de adicionar ele no declarations do módulo
-  transform(value: any): any {
+  transform(value: any, literals: any): any {
+    console.log(value);
     if (value === 'M') {
-      return 'Masculino'; // FIXME: Traduzir
+      return literals['male'];
     }
 
     if (value === 'F') {
-      return 'Feminino'; // FIXME: Traduzir
+      return literals['female'];
     }
 
-    return 'Outro'; // FIXME: Traduzir
+    return literals['other'];
   }
 
 }
