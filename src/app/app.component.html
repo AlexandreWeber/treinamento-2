@@ -8,8 +8,8 @@
     Criar uma página em branco po-page-default (componente do portinari)
   -->
   <po-page-default p-title="AppName">
+    <h1>Data Binding</h1>
     <!-- Interpolação: Sintaxe {{ variavel }} Exibe o valor da variável  -->
-    <pre>Interpolação</pre>
     <po-divider
       p-label="Interpolação">
     </po-divider>
@@ -58,6 +58,8 @@
       (p-click)="changeTwoWay()"
       p-type="default">
     </po-button>
+
+    <h1>Diretivas Angular</h1>
 
     <po-divider p-label="*ngIf"></po-divider>
 
@@ -158,6 +160,8 @@
     <div *ngIf="false; else elseBlock">Caiu no IF.</div>
     <ng-template #elseBlock>Caiu no ELSE.</ng-template>
 
+    <h1>Pipes Angular</h1>
+
     <!-- https://angular.io/guide/pipes -->
     <po-divider p-label="Pipe"></po-divider>
     <!-- A variável birthday está no TS -->
@@ -187,6 +191,24 @@
       [p-value]="orderValue | currency">
     </po-info>
     <pre>{{ customerList | json }}</pre>
+
+    <h1>Pipe Customizado</h1>
+    <!--
+      sex: É um pipe customizado, está na pasta shared/pipes
+      O valor (M, F e XXX) é enviado para o PIPE
+      e na função transform é retornada a descrição
+    -->
+    <po-info p-label="Sexo"
+             [p-value]="'M' | sex">
+    </po-info>
+
+    <po-info p-label="Sexo"
+             [p-value]="'F' | sex">
+    </po-info>
+
+    <po-info p-label="Sexo"
+             [p-value]="'XXX' | sex">
+    </po-info>
     <br/>
     <br/>
     <br/>
