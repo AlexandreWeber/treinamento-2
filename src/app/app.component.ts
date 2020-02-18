@@ -13,6 +13,10 @@ export class AppComponent {
   type = 2;
   nameTeste = 'Alexandre';
   showName2 = false;
+  orderValue = 12540;
+
+  // usada no exemplo de pipe
+  birthday = new Date(1988, 3, 15); // April 15, 1988
 
   // Essa variável é usado no HTML
   readonly menus: Array<PoMenuItem> = [

@@ -154,6 +154,41 @@
     <!-- exempo de ngIf com else -->
     <div *ngIf="false; else elseBlock">Caiu no IF.</div>
     <ng-template #elseBlock>Caiu no ELSE.</ng-template>
-  </po-page-default>
 
+    <!-- https://angular.io/guide/pipes -->
+    <po-divider p-label="Pipe"></po-divider>
+    <!-- A variável birthday está no TS -->
+    <po-info
+        p-label="Date PIPE"
+        p-orientation="horizontal"
+        [p-value]="birthday | date : 'dd/MM/yyyy'">
+    </po-info>
+    <!-- Vai exibir a variável nameTeste em maisculo -->
+    <po-info
+      p-label="uppercase"
+      p-orientation="horizontal"
+      [p-value]="nameTeste | uppercase">
+    </po-info>
+
+    <!-- Vai exibir a orderValue formatado -->
+    <po-info
+      p-label="Number pipe"
+      p-orientation="horizontal"
+      [p-value]="orderValue | number">
+    </po-info>
+
+    <!-- https://angular.io/api/common/DecimalPipe -->
+    <po-info
+      p-label="Currency pipe"
+      p-orientation="horizontal"
+      [p-value]="orderValue | currency">
+    </po-info>
+    <pre>{{ customerList | json }}</pre>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+  </po-page-default>
 </div>
