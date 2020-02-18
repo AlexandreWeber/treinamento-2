@@ -1,31 +1,52 @@
 <div class="po-wrapper">
   <po-toolbar p-title="AppName"></po-toolbar>
 
+  <!-- A variável 'menus' está no .ts -->
   <po-menu [p-menus]="menus"></po-menu>
 
+  <!--
+    Criar uma página em branco po-page-default (componente do portinari)
+  -->
   <po-page-default p-title="AppName">
+    <!-- Interpolação: Sintaxe {{ variavel }} Exibe o valor da variável  -->
     <pre>Interpolação</pre>
-
     <po-divider
       p-label="Interpolação">
     </po-divider>
+    <!--
+      A variável name está no .ts, se alterar no TS vai refletir na tela
+    -->
     <p>{{ name }}</p>
     <po-button
         p-label="Alterar"
         p-type="default"
         (p-click)="changeName()">
+        <!-- O changeName é uma função no TS, ela é executado quando
+             houver um clique no botão
+        -->
     </po-button>
 
     <po-divider p-label="Property Binding"></po-divider>
 
+    <!--
+      Property binding: Reflete no html o valor que do TS
+      literals.buttonLabel. Se alterado no TS automaticamente altera no HTML
+    -->
     <po-button
       [p-label]="literals.buttonLabel"
       p-type="default">
     </po-button>
 
     <po-divider p-label="Two-way data bindign"></po-divider>
-    
+
     <pre>{{ inputValue }}</pre>
+    <!--
+      ngModel: Armazena no TS o valor do componente na variável que
+      foi indicada no ngModel (inputValue)
+
+      Está usando o two-way data binding [()] Banana na caixa
+      Isso quer dizer que quando alterado no TS reflete no HTML, e vice-versa
+    -->
     <po-input
       [(ngModel)]="inputValue"
       name="input"
@@ -37,5 +58,102 @@
       (p-click)="changeTwoWay()"
       p-type="default">
     </po-button>
+
+    <po-divider p-label="*ngIf"></po-divider>
+
+    {{ showName }}
+    <po-switch
+      [(ngModel)]="showName"
+      name="switch"
+      p-label-on="Sim"
+      p-label-off="Não"
+      p-label="Exibir">
+    </po-switch>
+    {{ nameTeste }}
+
+    <!--
+      *ngIf: Responsável por remover o componente do HTML
+       Na condição deve ser informado um valor lógico (true ou false)
+       Pode ser usado uma função (retornando lógico) e os operadores E e OR
+       E (&&) OR (||)
+    -->
+    <po-input
+      [(ngModel)]="nameTeste"
+      *ngIf="canShowName()"
+      name="input"
+      p-label="Nome">
+    </po-input>
+
+    <po-divider p-label="*ngFor"></po-divider>
+    <!--
+      *ngFor: Vai percorre um Array para exibir os valores.
+      Sintaxe: 'let customer' (cria uma variavel da lista que está no of)
+               'of customerList'
+      A cada interção do for a variável customer é alimentada
+      customerList: está definida no TS
+     -->
+    <div *ngFor="let customer of customerList">
+      <po-info
+        p-label="Nome do Cliente"
+        [p-value]="customer.name">
+      </po-info>
+
+      <po-container class="po-md-6" *ngFor="let order of customer.orders">
+        <po-info
+          p-label="Código do pedido"
+          [p-value]="order.code">
+        </po-info>
+        <po-info
+          p-label="Valor do Pedido"
+          [p-value]="order.value">
+        </po-info>
+      </po-container>
+    </div>
+    <!--
+      NgSwitch: no [ngSwitch] vai selecionar type para aplicar as validações
+      *ngSwitchCase: Aplica a validação na variável selecionada
+                     e exibe o campo apenas se for verdadeiro
+      *ngSwitchDefault: Irá exibir apenas se nenhum dos ngSwitchCase for verdadeiro
+     -->
+    <po-divider p-label="NgSwitch"></po-divider>
+
+    <div [ngSwitch]="type">
+      <po-info *ngSwitchCase="1"
+                p-label="Tipo"
+                p-value="Pessoa Física">
+      </po-info>
+
+      <po-info *ngSwitchCase="2"
+                p-label="Tipo"
+                p-value="Pessoa Jurídica">
+      </po-info>
+
+      <po-info *ngSwitchDefault
+                p-label="Tipo"
+                p-value="Tipo inválido">
+      </po-info>
+    </div>
+
+    <po-divider p-label="NgClass"></po-divider>
+
+    <po-switch p-label="Vermelho?"
+      [(ngModel)]="isShowRed"
+      p-label-off="Não"
+      p-label-on="Sim">
+    </po-switch>
+    <!--
+      ngClass: Aplica uma classe CSS de acordo com a validação
+      Por exmplo: se isShowRed === true aplica a clase 'red'
+      se não, aplica a classe 'blue'
+      Essas classes está no app.component.css
+    -->
+    <p [ngClass]="{'blue' : !isShowRed, 'red' : isShowRed}">
+      Modernização Datasul
+    </p>
+
+    <!-- exempo de ngIf com else -->
+    <div *ngIf="false; else elseBlock">Caiu no IF.</div>
+    <ng-template #elseBlock>Caiu no ELSE.</ng-template>
   </po-page-default>
+
 </div>
