@@ -151,7 +151,10 @@
       Modernização Datasul
     </p>
 
-    <!-- exempo de ngIf com else -->
+    <!--
+      exempo de ngIf com else
+      O bloco a ser exibido no else deve ser um ng-template
+     -->
     <div *ngIf="false; else elseBlock">Caiu no IF.</div>
     <ng-template #elseBlock>Caiu no ELSE.</ng-template>
 
