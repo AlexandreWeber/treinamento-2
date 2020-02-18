@@ -215,6 +215,32 @@
         [p-label]="literals?.add"
         p-value="Teste">
     </po-info>
+
+    <h1>Serviço</h1>
+    <po-button
+      p-label="Pedir Cerveja"
+      (p-click)="getBeer()">
+    </po-button>
+    <div *ngFor="let beer of beers">
+      <po-container>
+        <po-info p-label="Nome"
+                 class="po-md-6"
+                 p-orientation="horizontal"
+                 [p-value]="beer?.name">
+        </po-info>
+
+        <po-info p-label="Descrição"
+                 class="po-md-6"
+                 p-orientation="horizontal"
+                 [p-value]="beer?.description">
+        </po-info>
+      </po-container>
+      <po-container>
+        <img [src]="beer?.image_url" width="200px" height="600px"/>
+      </po-container>
+    </div>
+
+
     <br/>
     <br/>
     <br/>

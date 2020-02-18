@@ -14,6 +14,7 @@ import { PoI18nConfig } from '@portinari/portinari-ui';
 import { generalPt } from './shared/literals/i18n/general-pt';
 import { generalEn } from './shared/literals/i18n/general-en';
 import { generalEs } from './shared/literals/i18n/general-es';
+import { BeerService } from './shared/services/beer.service';
 
 const i18nConfig: PoI18nConfig = {
   default: {
@@ -46,7 +47,9 @@ const i18nConfig: PoI18nConfig = {
     RouterModule.forRoot([])
   ],
   // Aqui nos providers vamos informar os serviços que farão parte dos módulos
-  providers: [],
+  providers: [
+    BeerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
