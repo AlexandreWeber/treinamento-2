@@ -11,7 +11,6 @@ export class CepService {
     constructor(private http: HttpClient) { }
 
     getById(id: string): Observable<any> {
-
-        return this.http.get<any>(`${this.apiUrl}${id}/json/`);
+      return this.http.get<any>(`${this.apiUrl}${id}/json`);
     }
 }

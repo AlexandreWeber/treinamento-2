@@ -12,6 +12,8 @@ export class BeerService {
   constructor(private httpService: HttpClient) { }
 
   getRandomBeer(): Observable<any> {
-    return this.httpService.get(`${this.apiUrl}`);
+    const headers = { 'X-Portinari-Screen-Lock': 'true' };
+
+    return this.httpService.get(`${this.apiUrl}`, { headers });
   }
 }
