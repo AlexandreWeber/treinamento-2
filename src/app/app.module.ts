@@ -15,6 +15,7 @@ import { generalPt } from './shared/literals/i18n/general-pt';
 import { generalEn } from './shared/literals/i18n/general-en';
 import { generalEs } from './shared/literals/i18n/general-es';
 import { BeerService } from './shared/services/beer.service';
+import { CepService } from './shared/services/cep.service';
 
 const i18nConfig: PoI18nConfig = {
   default: {
@@ -48,7 +49,8 @@ const i18nConfig: PoI18nConfig = {
   ],
   // Aqui nos providers vamos informar os serviços que farão parte dos módulos
   providers: [
-    BeerService
+    BeerService,
+    CepService
   ],
   bootstrap: [AppComponent]
 })
