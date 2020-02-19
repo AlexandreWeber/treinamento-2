@@ -15,5 +15,5 @@ de confirmação;
 - Também deve ser possível marcar a tarefa como completa
 
 **Imagem de Exemplo**
-- Na image está faltando um campo da data para o To Do
+- Na imagem está faltando um campo da data para o To Do
 ![*](./assets/todo.png)
