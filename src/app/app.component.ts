@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PoMenuItem } from '@portinari/portinari-ui';
 import { PoI18nService } from '@portinari/portinari-ui';
 import { BeerService } from './shared/services/beer.service';
-import { HttpClient } from '@angular/common/http';
-import { CepService } from './shared/services/cep.service';
 
 // FIXME: Colocar em arquivo separado
 interface IBeer {
@@ -30,13 +28,11 @@ export class AppComponent implements OnInit {
   // usada no exemplo de pipe
   birthday = new Date(1988, 3, 15); // April 15, 1988
 
-  cep: string;
-  cepResponse = {};
-
   // Essa variável é usado no HTML
   readonly menus: Array<PoMenuItem> = [
     { label: 'Home', action: this.onClick.bind(this) },
-    { label: 'Clientes', action: this.onClick.bind(this) }
+    { label: 'Clientes', action: this.onClick.bind(this) },
+    { label: 'CEP', link: '/zipcode' },
   ];
 
   isShowRed = true;
@@ -55,8 +51,7 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(private poI18nService: PoI18nService,
-              private beerService: BeerService,
-              private cepService: CepService) {
+              private beerService: BeerService) {
     poI18nService.getLiterals()
       .subscribe((literals) => {
         this.literals = literals;
@@ -74,12 +69,6 @@ export class AppComponent implements OnInit {
       this.beers = responseBeer;
     });
   }
-
-  getCep(): void {
-    this.cepService.getById(this.cep).subscribe((response) => {
-        this.cepResponse = response;
-    });
-}
 
   private onClick() {
     alert('Clicked in menu item')
