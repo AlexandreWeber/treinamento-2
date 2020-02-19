@@ -42,3 +42,20 @@
   </po-container>
 </div>
 
+<div class="po-row">
+  <po-button class="po-md-4"
+      p-label="Novo CEP"
+      (p-click)="newZipCode()">
+  </po-button>
+
+  <po-button class="po-md-4"
+    p-label="Editar CEP"
+    (p-click)="editZipCode()">
+  </po-button>
+
+</div>
+<app-wellcome userName="Alexandre"
+              [lastDate]="lastDate"
+              (goToCep)="navigateToZipCode($event)">
+</app-wellcome>
+

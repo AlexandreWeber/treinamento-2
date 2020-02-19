@@ -10,9 +10,11 @@ const routes: Routes = [
     component: ZipcodeComponent
   },
   {
-    // Quando houver navegação para /zipcode ele irá carregar o ZipcodeComponent
-    // na tag router-outlet (está no app.component.html)
     path: 'new',
+    component: ZipcodeComponent
+  },
+  {
+    path: 'edit/:zipcode',
     component: ZipcodeComponent
   }
 ];

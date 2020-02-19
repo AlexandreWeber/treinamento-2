@@ -5,15 +5,18 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { PoModule } from '@portinari/portinari-ui';
 import { FormsModule } from '@angular/forms';
-import { WellcomeComponent } from '../shared/components/wellcome/wellcome.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [HomeComponent, WellcomeComponent],
+  declarations: [
+    HomeComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     PoModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
