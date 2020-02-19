@@ -6,13 +6,11 @@ import { PoModule } from '@portinari/portinari-ui';
 import { FormsModule } from '@angular/forms';
 import { ZipcodeComponent } from './zipcode.component';
 import { CepService } from '../shared/services/cep.service';
-import { WellcomeComponent } from '../shared/components/wellcome/wellcome.component';
 
 @NgModule({
   declarations: [
     // Informa para o módulo que o componente de CEP faz parte dele
-    ZipcodeComponent,
-    WellcomeComponent
+    ZipcodeComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +20,7 @@ import { WellcomeComponent } from '../shared/components/wellcome/wellcome.compon
   ],
   providers: [
     // Importa o serviço que busca o CEP
-    // CepService
+    CepService
   ]
 })
 export class ZipcodeModule { }

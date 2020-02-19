@@ -1,4 +1,4 @@
-<!-- <div class="po-row">
+<div class="po-row">
   <po-input
       class="po-md-3"
       name="cep"
@@ -40,15 +40,5 @@
             [p-value]="cepResponse.uf">
     </po-info>
   </po-container>
-</div> -->
+</div>
 
-<!-- Envia os parâmetros para o componente FILHO -->
-<app-wellcome *ngFor="let user of users"
-              [userName]="user.name"
-              [lastDate]="user.lastDate"
-              (goToCep)="navigateToCep($event)">
-</app-wellcome>
-<!--
-     Escuta quando o evento (goToCep) é disparado e executa a função
-     navigateToCep
- -->

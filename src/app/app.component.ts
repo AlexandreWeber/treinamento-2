@@ -30,8 +30,7 @@ export class AppComponent implements OnInit {
 
   // Essa variável é usado no HTML
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', action: this.onClick.bind(this) },
-    { label: 'Clientes', action: this.onClick.bind(this) },
+    { label: 'Home', link: '/home'  },
     { label: 'CEP', link: '/zipcode' },
   ];
 
