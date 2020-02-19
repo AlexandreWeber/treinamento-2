@@ -15,6 +15,7 @@ import { generalPt } from './shared/literals/i18n/general-pt';
 import { generalEn } from './shared/literals/i18n/general-en';
 import { generalEs } from './shared/literals/i18n/general-es';
 import { BeerService } from './shared/services/beer.service';
+import { WellcomeComponent } from './shared/components/wellcome/wellcome.component';
 
 const i18nConfig: PoI18nConfig = {
   default: {

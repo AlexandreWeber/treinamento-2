@@ -8,7 +8,7 @@ const routes: Routes = [
     path: 'zipcode',
     loadChildren: () => import('./zipcode/zipcode.module')
                        .then((module) => module.ZipcodeModule)
-  }
+  },
 ];
 
 @NgModule({
